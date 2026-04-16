@@ -41,7 +41,7 @@ const HeroCard = styled.div`
 `
 
 
-const Title = styled.h1`
+const Title = styled.h2`
   max-width: 10ch;
   font-size: clamp(3rem, 6vw, 5.2rem);
   line-height: 0.95;
