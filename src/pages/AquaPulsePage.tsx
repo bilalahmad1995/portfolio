@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Reveal } from '../components/Reveal'
 import { SectionTitle } from '../components/SectionTitle'
-import { dreamStreamAdsProject } from '../content/siteContent'
+import { aquaPulseProject } from '../content/siteContent'
 import { techIconMap } from '../utils/techIcons'
 
 const Page = styled(motion.div)`
@@ -361,10 +361,10 @@ export function AquaPulsePage() {
 
       <Reveal>
         <Hero>
-          <Eyebrow>{dreamStreamAdsProject.context}</Eyebrow>
-          <HeroTitle>{dreamStreamAdsProject.title}</HeroTitle>
-          <Subtitle>{dreamStreamAdsProject.subtitle}</Subtitle>
-          <HeroPara>{dreamStreamAdsProject.overview}</HeroPara>
+          <Eyebrow>{aquaPulseProject.context}</Eyebrow>
+          <HeroTitle>{aquaPulseProject.title}</HeroTitle>
+          <Subtitle>{aquaPulseProject.subtitle}</Subtitle>
+          <HeroPara>{aquaPulseProject.overview}</HeroPara>
         </Hero>
       </Reveal>
 
@@ -374,7 +374,7 @@ export function AquaPulsePage() {
             <SectionTitle
               eyebrow="Problem"
               title="Separate ad exports created a fragmented picture."
-              body={dreamStreamAdsProject.problem}
+              body={aquaPulseProject.problem}
             />
           </Card>
         </Reveal>
@@ -387,7 +387,7 @@ export function AquaPulsePage() {
               body="Power Query handled ETL and normalization, while using to Power BI and DAX turned the prepared dataset into an interactive cross-channel dashboard."
             />
             <StackRow>
-              {dreamStreamAdsProject.techStack.map((tech) => {
+              {aquaPulseProject.techStack.map((tech) => {
                 const Icon = techIconMap[tech] ?? Database
 
                 return (
@@ -413,7 +413,7 @@ export function AquaPulsePage() {
 
         <ApproachGrid style={{ marginTop: '1.5rem' }}>
           <ApproachWrap>
-            {dreamStreamAdsProject.approach.map((item, index) => {
+            {aquaPulseProject.approach.map((item, index) => {
               const Icon = icons[index]
 
               return (
@@ -440,7 +440,7 @@ export function AquaPulsePage() {
         </Reveal>
 
         <FeaturesGrid style={{ marginTop: '1.5rem' }}>
-          {dreamStreamAdsProject.features.map((feature, index) => (
+          {aquaPulseProject.features.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.06}>
               <FeatureCard>
                 <FeatureTitle>{feature.title}</FeatureTitle>
@@ -461,7 +461,7 @@ export function AquaPulsePage() {
         </Reveal>
 
         <MetricsGrid style={{ marginTop: '1.5rem' }}>
-          {dreamStreamAdsProject.metrics.map((metric, index) => (
+          {aquaPulseProject.metrics.map((metric, index) => (
             <Reveal key={metric.label} delay={index * 0.06}>
               <MetricCard>
                 <strong>{metric.value}</strong>
@@ -482,7 +482,7 @@ export function AquaPulsePage() {
               body="The main value was not just prettier reporting. It was the ability to compare cost and conversion behavior consistently across channels."
             />
             <InsightList>
-              {dreamStreamAdsProject.insights.map((insight) => (
+              {aquaPulseProject.insights.map((insight) => (
                 <InsightItem key={insight}>
                   <CheckCircle2 size={17} style={{ marginTop: '0.1rem', flexShrink: 0, color: 'var(--accent)' }} />
                   <span>{insight}</span>
@@ -500,7 +500,7 @@ export function AquaPulsePage() {
               body="A lot of the project value came from getting the data into a dependable analytical shape before visualization."
             />
             <InsightList>
-              {dreamStreamAdsProject.dataChallenges.map((item) => (
+              {aquaPulseProject.dataChallenges.map((item) => (
                 <InsightItem key={item}>
                   <CheckCircle2 size={17} style={{ marginTop: '0.1rem', flexShrink: 0, color: 'var(--warm)' }} />
                   <span>{item}</span>
@@ -521,7 +521,7 @@ export function AquaPulsePage() {
         </Reveal>
 
         <ImpactGrid style={{ marginTop: '1.5rem' }}>
-          {dreamStreamAdsProject.impact.map((item, index) => {
+          {aquaPulseProject.impact.map((item, index) => {
             const Icon = impactIcons[index]
 
             return (

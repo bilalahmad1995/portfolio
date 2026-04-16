@@ -6,7 +6,7 @@ import { Reveal } from '../components/Reveal'
 import { SectionTitle } from '../components/SectionTitle'
 import {
   caseStudies,
-  dreamStreamAdsProject,
+  aquaPulseProject,
   education,
   portfolioImages,
   salesFunnelProject,
@@ -475,10 +475,10 @@ export function PortfolioPage() {
             <img src={portfolioImages.analytics.src} alt={portfolioImages.analytics.alt} loading="lazy" />
             <ProjectOverlayWide>
               <ProjectEyebrow style={{ color: 'var(--warm)', background: 'rgba(231,167,94,0.2)' }}>
-                {dreamStreamAdsProject.context}
+                {aquaPulseProject.context}
               </ProjectEyebrow>
-              <ProjectOverlayTitle>{dreamStreamAdsProject.title}</ProjectOverlayTitle>
-              <ProjectOverlayDesc>{dreamStreamAdsProject.tagline}</ProjectOverlayDesc>
+              <ProjectOverlayTitle>{aquaPulseProject.title}</ProjectOverlayTitle>
+              <ProjectOverlayDesc>{aquaPulseProject.tagline}</ProjectOverlayDesc>
               <ProjectArrow>
                 View case study <ArrowUpRight size={14} />
               </ProjectArrow>

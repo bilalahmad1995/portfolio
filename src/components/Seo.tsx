@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { blogPosts } from '../content/blogContent'
-import { dreamStreamAdsProject, salesFunnelProject, samsungCQCProject, siteMeta } from '../content/siteContent'
+import { aquaPulseProject, salesFunnelProject, samsungCQCProject, siteMeta } from '../content/siteContent'
 
 const defaultTitle = 'Bilal Ahmad | Data Engineering, Analytics & AI'
 const defaultDescription =
@@ -46,8 +46,8 @@ function getMeta(pathname: string) {
         'Selected case studies across data engineering, analytics, dashboards, enterprise systems, and applied machine learning.',
     },
     '/portfolio/aqua-pulse': {
-      title: `${dreamStreamAdsProject.title} | ${siteMeta.name}`,
-      description: dreamStreamAdsProject.tagline,
+      title: `${aquaPulseProject.title} | ${siteMeta.name}`,
+      description: aquaPulseProject.tagline,
       type: 'article',
     },
     '/portfolio/sales-funnel': {

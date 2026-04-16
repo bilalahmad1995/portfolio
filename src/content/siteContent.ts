@@ -120,14 +120,14 @@ export const salesFunnelProject = {
   ],
 };
 
-export const dreamStreamAdsProject = {
-  title: "DreamStream Performance Dashboard",
+export const aquaPulseProject = {
+  title: "AquaPulse Performance Dashboard",
   subtitle: "Power Query · Power BI · CSV-based Marketing Analytics",
   context: "Marketing Analytics Case Study",
   tagline:
     "Unified Google Ads, Facebook Ads, and LinkedIn Ads CSV data into a cross-channel performance dashboard for brand, country, date, and channel analysis.",
   overview:
-    "Built a marketing analytics dashboard for DreamStream, a watercooler manufacturer with the DreamStream and CoolPool brands. The project focused on combining advertising data from multiple platforms into one consistent reporting layer so campaign performance could be tracked across brands, countries, dates, and channels.",
+    "Built a marketing analytics dashboard for AquaPulse, a watercooler manufacturer with the AquaPulse and CoolPool brands. The project focused on combining advertising data from multiple platforms into one consistent reporting layer so campaign performance could be tracked across brands, countries, dates, and channels.",
   problem:
     "Ad platform exports came in separate CSV files with different metric structures and naming conventions, making it difficult to compare campaign performance across Google Ads, Facebook Ads, and LinkedIn Ads. The business needed one coherent view of spend, clicks, conversions, and cost efficiency.",
   approach: [
