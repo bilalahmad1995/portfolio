@@ -403,10 +403,38 @@ const BannerText = styled.p`
 export function BlogPage() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
-  const handleSubscribe = (e: FormEvent) => {
+  const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault()
-    if (email) { setSubscribed(true); setEmail('') }
+
+    if (!email) return
+
+    setSubmitError('')
+
+    try {
+      const payload = new URLSearchParams({
+        'form-name': 'blog-newsletter',
+        email,
+        source: 'blog-index',
+        'bot-field': '',
+      }).toString()
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      })
+
+      if (!response.ok) {
+        throw new Error('Newsletter signup failed')
+      }
+
+      setSubscribed(true)
+      setEmail('')
+    } catch {
+      setSubmitError('Something went wrong. Please try again in a moment.')
+    }
   }
 
   const featured = blogPosts.find((p) => p.featured)!
@@ -528,9 +556,19 @@ export function BlogPage() {
           {subscribed ? (
             <NewsletterSuccess>✓ You're on the list. Talk soon.</NewsletterSuccess>
           ) : (
-            <NewsletterFormRow onSubmit={handleSubscribe}>
+            <NewsletterFormRow
+              name="blog-newsletter"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubscribe}
+            >
+              <input type="hidden" name="form-name" value="blog-newsletter" />
+              <input type="hidden" name="source" value="blog-index" />
+              <input type="hidden" name="bot-field" />
               <NewsletterEmailInput
                 type="email"
+                name="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -541,6 +579,7 @@ export function BlogPage() {
               </NewsletterSubmitBtn>
             </NewsletterFormRow>
           )}
+          {!subscribed && submitError ? <NewsletterSuccess>{submitError}</NewsletterSuccess> : null}
         </NewsletterSection>
       </Reveal>
     </Page>

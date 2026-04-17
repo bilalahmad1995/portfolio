@@ -446,6 +446,7 @@ export function BlogPostPage() {
   const [submitted, setSubmitted] = useState(false)
   const [subEmail, setSubEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const [subscribeError, setSubscribeError] = useState('')
 
   useEffect(() => {
     try {
@@ -471,9 +472,36 @@ export function BlogPostPage() {
     setSubmitted(true)
   }
 
-  const handleSubscribe = (e: FormEvent) => {
+  const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault()
-    if (subEmail) setSubscribed(true)
+
+    if (!subEmail) return
+
+    setSubscribeError('')
+
+    try {
+      const payload = new URLSearchParams({
+        'form-name': 'blog-newsletter',
+        email: subEmail,
+        source: `blog-post:${post.slug}`,
+        'bot-field': '',
+      }).toString()
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      })
+
+      if (!response.ok) {
+        throw new Error('Newsletter signup failed')
+      }
+
+      setSubscribed(true)
+      setSubEmail('')
+    } catch {
+      setSubscribeError('Something went wrong. Please try again in a moment.')
+    }
   }
 
   return (
@@ -613,9 +641,19 @@ export function BlogPostPage() {
           {subscribed ? (
             <SubscribedMsg>✓ You're on the list. Talk soon.</SubscribedMsg>
           ) : (
-            <NewsletterForm onSubmit={handleSubscribe}>
+            <NewsletterForm
+              name="blog-newsletter"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubscribe}
+            >
+              <input type="hidden" name="form-name" value="blog-newsletter" />
+              <input type="hidden" name="source" value={`blog-post:${post.slug}`} />
+              <input type="hidden" name="bot-field" />
               <EmailInput
                 type="email"
+                name="email"
                 placeholder="your@email.com"
                 value={subEmail}
                 onChange={(e) => setSubEmail(e.target.value)}
@@ -627,6 +665,7 @@ export function BlogPostPage() {
               </SubscribeBtn>
             </NewsletterForm>
           )}
+          {!subscribed && subscribeError ? <SubscribedMsg>{subscribeError}</SubscribedMsg> : null}
         </NewsletterCard>
       </Reveal>
     </Page>
