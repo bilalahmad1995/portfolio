@@ -310,6 +310,12 @@ const ThanksBox = styled.div`
   }
 `
 
+const ReviewError = styled.p`
+  font-size: 0.88rem;
+  color: #d46a6a;
+  font-weight: 700;
+`
+
 /* ── Newsletter CTA ───────────────────────────────────────── */
 
 const NewsletterCard = styled.div`
@@ -444,6 +450,7 @@ export function BlogPostPage() {
   const [rating, setRating] = useState(0)
   const [feedback, setFeedback] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [reviewError, setReviewError] = useState('')
   const [subEmail, setSubEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const [subscribeError, setSubscribeError] = useState('')
@@ -462,14 +469,46 @@ export function BlogPostPage() {
   const config = categoryConfig[post.category] ?? { bg: 'rgba(17,32,51,0.06)', color: 'var(--text-muted)' }
   const displayStar = hoveredStar || rating
 
-  const handleReview = (e: FormEvent) => {
+  const handleReview = async (e: FormEvent) => {
     e.preventDefault()
+
+    if (rating === 0) return
+
+    setReviewError('')
+
+    const submittedAt = new Date().toISOString()
+
     try {
-      localStorage.setItem(storageKey, JSON.stringify({ rating, feedback, date: new Date().toISOString() }))
+      const payload = new URLSearchParams({
+        'form-name': 'blog-feedback',
+        postSlug: post.slug,
+        postTitle: post.title,
+        rating: String(rating),
+        feedback,
+        submittedAt,
+        'bot-field': '',
+      }).toString()
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      })
+
+      if (!response.ok) {
+        throw new Error('Feedback submission failed')
+      }
+
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({ rating, feedback, date: submittedAt }))
+      } catch {
+        // localStorage unavailable
+      }
+
+      setSubmitted(true)
     } catch {
-      // ignore
+      setReviewError('Something went wrong. Please try again in a moment.')
     }
-    setSubmitted(true)
   }
 
   const handleSubscribe = async (e: FormEvent) => {
@@ -591,7 +630,20 @@ export function BlogPostPage() {
               <span>It genuinely helps shape what I write next.</span>
             </ThanksBox>
           ) : (
-            <form onSubmit={handleReview} style={{ display: 'grid', gap: '1rem' }}>
+            <form
+              name="blog-feedback"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleReview}
+              style={{ display: 'grid', gap: '1rem' }}
+            >
+              <input type="hidden" name="form-name" value="blog-feedback" />
+              <input type="hidden" name="postSlug" value={post.slug} />
+              <input type="hidden" name="postTitle" value={post.title} />
+              <input type="hidden" name="rating" value={rating > 0 ? String(rating) : ''} />
+              <input type="hidden" name="submittedAt" value={new Date().toISOString()} />
+              <input type="hidden" name="bot-field" />
               <div>
                 <StarRow>
                   {[1, 2, 3, 4, 5].map((n) => (
@@ -614,6 +666,7 @@ export function BlogPostPage() {
               </div>
 
               <FeedbackArea
+                name="feedback"
                 placeholder="Anything you'd like me to dig deeper on, cover differently, or write about next? (optional)"
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
@@ -623,6 +676,7 @@ export function BlogPostPage() {
                 <Send size={14} />
                 Submit feedback
               </SubmitBtn>
+              {reviewError ? <ReviewError>{reviewError}</ReviewError> : null}
             </form>
           )}
         </ReviewCard>
