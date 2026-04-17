@@ -1,6 +1,6 @@
 import type { ElementType } from 'react'
 import { motion } from 'framer-motion'
-import { Atom, BookOpen, Brain, Globe, MapPin, Star } from 'lucide-react'
+import { Atom, BookOpen, Brain, Globe, MapPin } from 'lucide-react'
 import styled from 'styled-components'
 import { Reveal } from '../components/Reveal'
 import { SectionTitle } from '../components/SectionTitle'
@@ -97,10 +97,6 @@ const interests: Interest[] = [
     title: 'Philosophy of Mind & Consciousness',
     body: "The hard problem of consciousness, integrated information theory, Chalmers, Dennett, and the question of why there is something it is like to be anything at all. Purely physical explanations seem to always leave the most interesting thing — subjective experience — sitting just outside their reach.",
   },
-
-
-
-  
 ]
 
 // ---------------------------------------------------------------------------
