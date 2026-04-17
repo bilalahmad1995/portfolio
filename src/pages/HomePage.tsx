@@ -240,6 +240,11 @@ const TechDnaCard = styled.div`
     background: radial-gradient(circle, rgba(14, 143, 131, 0.18), transparent 65%);
     pointer-events: none;
   }
+
+  @media (max-width: 680px) {
+    padding: 1.15rem;
+    gap: 1.2rem;
+  }
 `
 
 const TerminalBar = styled.div`
@@ -248,6 +253,11 @@ const TerminalBar = styled.div`
   gap: 0.55rem;
   position: relative;
   z-index: 1;
+
+  @media (max-width: 680px) {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+  }
 `
 
 const TerminalDot = styled.span<{ $color: string }>`
@@ -264,6 +274,13 @@ const TerminalTitle = styled.span`
   font-family: 'Space Grotesk', monospace;
   letter-spacing: 0.06em;
   margin-left: 0.35rem;
+
+  @media (max-width: 680px) {
+    flex-basis: 100%;
+    margin-left: 0;
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
 `
 
 const PipelineRow = styled.div`
@@ -274,11 +291,19 @@ const PipelineRow = styled.div`
   z-index: 1;
   overflow-x: auto;
   padding-bottom: 0.1rem;
+
+  @media (max-width: 680px) {
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
 `
 
 const PipeNode = styled.div<{ $accent?: boolean }>`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   padding: 0.48rem 0.85rem;
   border-radius: 8px;
@@ -290,6 +315,16 @@ const PipeNode = styled.div<{ $accent?: boolean }>`
   background: ${(p) => p.$accent ? 'rgba(14, 143, 131, 0.22)' : 'rgba(255, 255, 255, 0.07)'};
   border: 1px solid ${(p) => p.$accent ? 'rgba(14, 143, 131, 0.45)' : 'rgba(255, 255, 255, 0.09)'};
   color: ${(p) => p.$accent ? '#4dd8cc' : 'rgba(255, 255, 255, 0.72)'};
+
+  @media (max-width: 680px) {
+    flex: 1 1 calc(50% - 0.55rem);
+    min-width: 0;
+    padding: 0.58rem 0.75rem;
+  }
+
+  @media (max-width: 420px) {
+    flex-basis: 100%;
+  }
 `
 
 const PipeArrow = styled.span`
@@ -297,6 +332,10 @@ const PipeArrow = styled.span`
   font-size: 0.85rem;
   padding: 0 0.3rem;
   flex-shrink: 0;
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 `
 
 const PillarGrid = styled.div`
@@ -451,6 +490,11 @@ const LiveBadge = styled.div`
   @keyframes pulse {
     0%, 100% { box-shadow: 0 0 0 3px rgba(14, 143, 131, 0.28); }
     50%       { box-shadow: 0 0 0 6px rgba(14, 143, 131, 0.08); }
+  }
+
+  @media (max-width: 680px) {
+    position: static;
+    justify-self: start;
   }
 `
 
