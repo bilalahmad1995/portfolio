@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="36" fill="#F7F3EA"/>
+  <rect x="18" y="18" width="1164" height="594" rx="28" stroke="#E8DFCF" stroke-width="2"/>
+
+  <g opacity="0.45">
+    <path d="M0 112H1200" stroke="#E8DFCF"/>
+    <path d="M0 224H1200" stroke="#E8DFCF"/>
+    <path d="M0 336H1200" stroke="#E8DFCF"/>
+    <path d="M0 448H1200" stroke="#E8DFCF"/>
+    <path d="M0 560H1200" stroke="#E8DFCF"/>
+    <path d="M120 0V630" stroke="#E8DFCF"/>
+    <path d="M240 0V630" stroke="#E8DFCF"/>
+    <path d="M360 0V630" stroke="#E8DFCF"/>
+    <path d="M480 0V630" stroke="#E8DFCF"/>
+    <path d="M600 0V630" stroke="#E8DFCF"/>
+    <path d="M720 0V630" stroke="#E8DFCF"/>
+    <path d="M840 0V630" stroke="#E8DFCF"/>
+    <path d="M960 0V630" stroke="#E8DFCF"/>
+    <path d="M1080 0V630" stroke="#E8DFCF"/>
+  </g>
+
+  <circle cx="114" cy="92" r="72" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="1118" cy="558" r="118" fill="#F1DEC2" opacity="0.48"/>
+
+  <rect x="82" y="102" width="132" height="132" rx="32" fill="#14202F"/>
+  <text x="148" y="186" text-anchor="middle" fill="#4DD8CC" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">BA</text>
+
+  <text x="82" y="316" fill="#6F7B88" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="5">CONNECTWITHBILAL.COM</text>
+  <text x="82" y="388" fill="#14202F" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Bilal Ahmad</text>
+  <text x="82" y="457" fill="#14202F" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Data Engineering, Analytics &amp; AI</text>
+  <text x="82" y="524" fill="#5D6874" font-family="Arial, Helvetica, sans-serif" font-size="30">
+    Portfolio spanning software engineering, data platforms,
+  </text>
+  <text x="82" y="566" fill="#5D6874" font-family="Arial, Helvetica, sans-serif" font-size="30">
+    analytics systems, and applied machine learning.
+  </text>
+
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(114 92) rotate(90) scale(72)">
+      <stop stop-color="#BCEBE5"/>
+      <stop offset="1" stop-color="#BCEBE5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

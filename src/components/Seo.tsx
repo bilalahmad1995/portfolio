@@ -6,6 +6,7 @@ import { aquaPulseProject, salesFunnelProject, samsungCQCProject, siteMeta } fro
 const defaultTitle = 'Bilal Ahmad | Data Engineering, Analytics & AI'
 const defaultDescription =
   'Bilal Ahmad portfolio website showcasing software engineering, data engineering, analytics, and data science work.'
+const socialImageUrl = 'https://connectwithbilal.com/og-image.png'
 
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null
@@ -111,7 +112,12 @@ export function Seo() {
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: type })
     upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl })
     upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: siteMeta.name })
-    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary' })
+    upsertMeta('meta[property="og:image"]', { property: 'og:image', content: socialImageUrl })
+    upsertMeta('meta[property="og:image:width"]', { property: 'og:image:width', content: '1200' })
+    upsertMeta('meta[property="og:image:height"]', { property: 'og:image:height', content: '630' })
+    upsertMeta('meta[property="og:image:alt"]', { property: 'og:image:alt', content: 'Bilal Ahmad portfolio preview card' })
+    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' })
+    upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: socialImageUrl })
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title })
     upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description })
     upsertLink('link[rel="canonical"]', { rel: 'canonical', href: canonicalUrl })
