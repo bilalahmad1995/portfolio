@@ -98,11 +98,6 @@ const interests: Interest[] = [
     body: "The hard problem of consciousness, integrated information theory, Chalmers, Dennett, and the question of why there is something it is like to be anything at all. Purely physical explanations seem to always leave the most interesting thing — subjective experience — sitting just outside their reach.",
   },
 
-  {
-    icon: Star,
-    title: 'Cosmology & the Nature of Time',
-    body: 'The arrow of time, the low-entropy initial conditions of the universe, entropic gravity, and the multiverse — questions where physics and philosophy blur into each other. Why does time move forward? Is the Big Bang a beginning or a boundary condition? The universe is not required to be comprehensible, which makes the fact that it largely is feel miraculous.',
-  },
 
 
   
