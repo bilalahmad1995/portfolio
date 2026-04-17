@@ -1,7 +1,7 @@
 import type { FormEvent } from 'react'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Briefcase, CheckCircle2, Copy, Linkedin, Mail } from 'lucide-react'
+import { ArrowUpRight, Briefcase, CheckCircle2, Linkedin, Mail } from 'lucide-react'
 import styled from 'styled-components'
 import { Reveal } from '../components/Reveal'
 import { SectionTitle } from '../components/SectionTitle'
@@ -250,34 +250,42 @@ const Status = styled.p`
 `
 
 export function ContactPage() {
-  const formRecipient = 'bilal.ahmad@fau.de'
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState('')
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name || 'a visitor'}`)
-    const rawBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    const body = encodeURIComponent(rawBody)
+    setStatus('')
 
-    window.location.href = `mailto:${formRecipient}?subject=${subject}&body=${body}`
+    try {
+      const payload = new URLSearchParams({
+        'form-name': 'contact-message',
+        name,
+        email,
+        message,
+        'bot-field': '',
+      }).toString()
 
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard
-        .writeText(`To: ${formRecipient}\nSubject: Portfolio inquiry from ${name || 'a visitor'}\n\n${rawBody}`)
-        .then(() => {
-          setStatus('Your email app should open. If it does not, the full message has already been copied for manual sending.')
-        })
-        .catch(() => {
-          setStatus('Your email app should open with the message prefilled. If it does not, email me directly at bilal.ahmad@fau.de.')
-        })
-      return
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
+      })
+
+      if (!response.ok) {
+        throw new Error('Contact form submission failed')
+      }
+
+      setStatus('Your message has been sent successfully. I’ll get back to you soon.')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch {
+      setStatus('Something went wrong while sending your message. Please try again in a moment.')
     }
-
-    setStatus('Your email app should open with the message prefilled. If it does not, email me directly at bilal.ahmad@fau.de.')
   }
 
   return (
@@ -372,23 +380,38 @@ export function ContactPage() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <FormCard onSubmit={handleSubmit}>
+          <FormCard
+            name="contact-message"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
             <SectionTitle
               eyebrow="Message"
               title="Send a quick note."
-              body="This form opens your email app with a prefilled message and also copies the draft as a fallback."
+              body="Share a little about your role, project, or idea, and I’ll get back to you directly."
             />
+
+            <input type="hidden" name="form-name" value="contact-message" />
+            <input type="hidden" name="bot-field" />
 
             <Grid>
               <Field>
                 Name
-                <Input value={name} onChange={(event) => setName(event.target.value)} placeholder="Your name" />
+                <Input
+                  name="name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="Your name"
+                />
               </Field>
 
               <Field>
                 Email
                 <Input
                   type="email"
+                  name="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="you@example.com"
@@ -400,6 +423,7 @@ export function ContactPage() {
             <Field>
               Message
               <Textarea
+                name="message"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Tell me a little about your role, project, or idea."
@@ -408,14 +432,10 @@ export function ContactPage() {
             </Field>
 
             <Submit type="submit">
-              Start the email <ArrowUpRight size={16} />
+              Send message <ArrowUpRight size={16} />
             </Submit>
 
             {status ? <Status>{status}</Status> : null}
-            <Status style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-              <Copy size={14} />
-              Direct email fallback: bilal.ahmad@fau.de
-            </Status>
           </FormCard>
         </Reveal>
       </Split>
