@@ -13,6 +13,24 @@ import {
   samsungCQCProject,
 } from '../content/siteContent'
 
+const analyticsImageSrcSet = [
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+].join(', ')
+
+const solarFarmImageSrcSet = [
+  'https://images.pexels.com/photos/18316987/pexels-photo-18316987.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
+  'https://images.pexels.com/photos/18316987/pexels-photo-18316987.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
+  'https://images.pexels.com/photos/18316987/pexels-photo-18316987.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+].join(', ')
+
+const infrastructureImageSrcSet = [
+  'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
+  'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
+  'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+].join(', ')
+
 const Page = styled(motion.div)`
   display: grid;
   gap: 5rem;
@@ -472,7 +490,13 @@ export function PortfolioPage() {
       <FeaturedProjectsGrid>
         <FullWidthProjectReveal>
           <FullWidthProjectTile to="/portfolio/aqua-pulse">
-            <img src={portfolioImages.analytics.src} alt={portfolioImages.analytics.alt} loading="lazy" />
+            <img
+              src={portfolioImages.analytics.src}
+              srcSet={analyticsImageSrcSet}
+              sizes="(max-width: 640px) 100vw, 92vw"
+              alt={portfolioImages.analytics.alt}
+              loading="lazy"
+            />
             <ProjectOverlayWide>
               <ProjectEyebrow style={{ color: 'var(--warm)', background: 'rgba(231,167,94,0.2)' }}>
                 {aquaPulseProject.context}
@@ -488,7 +512,13 @@ export function PortfolioPage() {
 
         <HalfProjectReveal delay={0.06}>
           <HalfProjectTile to="/portfolio/sales-funnel">
-            <img src={portfolioImages.solarFarm.src} alt={portfolioImages.solarFarm.alt} loading="lazy" />
+            <img
+              src={portfolioImages.solarFarm.src}
+              srcSet={solarFarmImageSrcSet}
+              sizes="(max-width: 640px) 100vw, 46vw"
+              alt={portfolioImages.solarFarm.alt}
+              loading="lazy"
+            />
             <ProjectOverlay>
               <ProjectEyebrow>{salesFunnelProject.context}</ProjectEyebrow>
               <ProjectOverlayTitle>{salesFunnelProject.title}</ProjectOverlayTitle>
@@ -502,7 +532,13 @@ export function PortfolioPage() {
 
         <HalfProjectReveal delay={0.1}>
           <HalfProjectTile to="/portfolio/samsung-cqc">
-            <img src={portfolioImages.infrastructure.src} alt={portfolioImages.infrastructure.alt} loading="lazy" />
+            <img
+              src={portfolioImages.infrastructure.src}
+              srcSet={infrastructureImageSrcSet}
+              sizes="(max-width: 640px) 100vw, 46vw"
+              alt={portfolioImages.infrastructure.alt}
+              loading="lazy"
+            />
             <ProjectOverlay>
               <ProjectEyebrow style={{ color: 'var(--warm)', background: 'rgba(231,167,94,0.2)' }}>
                 {samsungCQCProject.context}

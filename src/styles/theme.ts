@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     overflow-x: hidden;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Aptos', 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     color: var(--text);
     background:
       radial-gradient(circle at top left, rgba(14, 143, 131, 0.18), transparent 28%),
@@ -82,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Aptos Display', 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
     letter-spacing: -0.04em;
     overflow-wrap: break-word;

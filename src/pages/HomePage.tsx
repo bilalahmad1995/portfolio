@@ -6,6 +6,12 @@ import { Reveal } from '../components/Reveal'
 import { SectionTitle } from '../components/SectionTitle'
 import { experienceTimeline, focusAreas, impactStats, portfolioImages, siteMeta, skillGroups } from '../content/siteContent'
 
+const analyticsImageSrcSet = [
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+].join(', ')
+
 const Page = styled(motion.div)`
   display: grid;
   gap: 5rem;
@@ -412,7 +418,7 @@ const DnaSupportHeader = styled.div`
   display: grid;
   gap: 0.2rem;
 
-  h4 {
+  h3 {
     font-size: 0.84rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -869,7 +875,7 @@ export function HomePage() {
 
             <DnaSupport>
               <DnaSupportHeader>
-                <h4>Project Management & Collaboration</h4>
+                <h3>Project Management & Collaboration</h3>
                 <p>Office workflows, planning, handoff, and team communication tools I use comfortably in delivery environments.</p>
               </DnaSupportHeader>
 
@@ -971,7 +977,13 @@ export function HomePage() {
         <VisualStoryGrid>
           <Reveal>
             <ImageCard style={{ minHeight: '420px' }}>
-              <img src={portfolioImages.analytics.src} alt={portfolioImages.analytics.alt} loading="lazy" />
+              <img
+                src={portfolioImages.analytics.src}
+                srcSet={analyticsImageSrcSet}
+                sizes="(max-width: 860px) 100vw, 58vw"
+                alt={portfolioImages.analytics.alt}
+                loading="lazy"
+              />
               <ImageCaption>
                 <span>Analytics</span>
                 <h3>Making data legible enough to drive decisions.</h3>
