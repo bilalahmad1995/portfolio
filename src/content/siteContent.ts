@@ -427,14 +427,14 @@ export const education = [
     degree: "M.Sc. Data Science",
     detail:
       "Statistics, Artificial Intelligence, Business Intelligence, Machine Learning, Deep Learning",
-    period: "2022 – 2025",
+    
   },
   {
     school: "National University of Sciences and Technology",
     degree: "B.Eng. Software Engineering / Computer Science",
     detail:
       "Strong software engineering foundations with applied systems thinking",
-    period: "2014 – 2018",
+    
   },
 ];
 

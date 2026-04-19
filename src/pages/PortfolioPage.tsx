@@ -389,7 +389,6 @@ export function PortfolioPage() {
                 </div>
                 <div>{item.school}</div>
                 <p>{item.detail}</p>
-                <small style={{ color: 'var(--text-muted)' }}>{item.period}</small>
               </EducationCard>
             ))}
 

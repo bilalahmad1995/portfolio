@@ -40,7 +40,7 @@ const booksRead = [
   {
     title: 'Notes from the Underground',
     author: 'Fyodor Dostoevsky',
-    note: "The underground man is unbearable and utterly honest — a study in how intelligence without humility becomes self-destructive. Short, brutal, unforgettable.",
+    note: "The underground man is unbearable and utterly honest — a study in how intelligence without humility becomes self-destructive. Short, brutal, and unforgettable.",
   },
   {
     title: 'The Brothers Karamazov',
