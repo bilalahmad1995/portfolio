@@ -418,7 +418,8 @@ const DnaSupportHeader = styled.div`
   display: grid;
   gap: 0.2rem;
 
-  h3 {
+  span {
+    display: block;
     font-size: 0.84rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -875,7 +876,7 @@ export function HomePage() {
 
             <DnaSupport>
               <DnaSupportHeader>
-                <h3>Project Management & Collaboration</h3>
+                <span>Project Management & Collaboration</span>
                 <p>Office workflows, planning, handoff, and team communication tools I use comfortably in delivery environments.</p>
               </DnaSupportHeader>
 
