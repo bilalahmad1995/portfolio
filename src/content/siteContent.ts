@@ -267,7 +267,7 @@ export const focusAreas = [
     description:
       "Designing ETL and ELT pipelines, data models, validation layers, and governed analytics foundations across enterprise systems.",
     points: [
-      "SAP ERP integration",
+      "ERP integrations",
       "Structured analytics layers",
       "Data quality and documentation",
     ],

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ArrowUpRight, Linkedin, Mail, Menu, X } from 'lucide-react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import styled from 'styled-components'
 import { siteMeta } from '../content/siteContent'
 
@@ -209,7 +208,7 @@ const HamburgerBtn = styled.button<{ $open: boolean }>`
 
 /* ── Mobile drawer overlay ────────────────────────────────── */
 
-const MobileOverlay = styled(motion.div)`
+const MobileOverlay = styled.div`
   position: fixed;
   inset: 0;
   z-index: 30;
@@ -219,6 +218,19 @@ const MobileOverlay = styled(motion.div)`
   flex-direction: column;
   padding: 6rem 2rem 3rem;
   overflow-y: auto;
+  animation: mobileOverlayIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes mobileOverlayIn {
+    from {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `
 
 const MobileNavList = styled.nav`
@@ -228,8 +240,17 @@ const MobileNavList = styled.nav`
   flex: 1;
 `
 
-const MobileNavItem = styled(motion.div)`
-  /* wrapper for stagger animation */
+const MobileNavItem = styled.div`
+  opacity: 0;
+  transform: translateX(-0.85rem);
+  animation: mobileNavItemIn 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  @keyframes mobileNavItemIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `
 
 const MobileNavLink = styled(NavLink)`
@@ -261,12 +282,19 @@ const MobileNavNumber = styled.span`
   letter-spacing: 0.06em;
 `
 
-const MobileSocials = styled(motion.div)`
+const MobileSocials = styled.div`
   display: flex;
   gap: 0.75rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(17, 32, 51, 0.08);
   margin-top: 2rem;
+  opacity: 0;
+  animation: mobileSocialsIn 220ms ease forwards;
+  animation-delay: 220ms;
+
+  @keyframes mobileSocialsIn {
+    to { opacity: 1; }
+  }
 `
 
 const MobileSocialLink = styled.a`
@@ -438,21 +466,13 @@ export function SiteLayout() {
       </Header>
 
       {/* Mobile drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <MobileOverlay
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          >
+      {isOpen && (
+          <MobileOverlay>
             <MobileNavList>
               {navLinks.map((link, i) => (
                 <MobileNavItem
                   key={link.to}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.055, duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ animationDelay: `${i * 45}ms` }}
                 >
                   <MobileNavLink to={link.to} end={link.to === '/'} onClick={() => setIsOpen(false)}>
                     {link.label}
@@ -462,11 +482,7 @@ export function SiteLayout() {
               ))}
             </MobileNavList>
 
-            <MobileSocials
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.25 }}
-            >
+            <MobileSocials>
               <MobileSocialLink href={`mailto:${siteMeta.email}`}>
                 <Mail size={15} /> Email
               </MobileSocialLink>
@@ -476,7 +492,6 @@ export function SiteLayout() {
             </MobileSocials>
           </MobileOverlay>
         )}
-      </AnimatePresence>
 
       <Main>
         <Outlet />
