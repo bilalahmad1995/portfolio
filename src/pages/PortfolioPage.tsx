@@ -8,6 +8,7 @@ import {
   caseStudies,
   aquaPulseProject,
   education,
+  marktPulseProject,
   portfolioImages,
   salesFunnelProject,
   samsungCQCProject,
@@ -29,6 +30,12 @@ const infrastructureImageSrcSet = [
   'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
   'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
   'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+].join(', ')
+
+const marktPulseImageSrcSet = [
+  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
+  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
+  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
 ].join(', ')
 
 const Page = styled(motion.div)`
@@ -550,6 +557,28 @@ export function PortfolioPage() {
             </ProjectOverlay>
           </HalfProjectTile>
         </HalfProjectReveal>
+
+        <FullWidthProjectReveal delay={0.14}>
+          <FullWidthProjectTile to="/portfolio/markt-pulse">
+            <img
+              src={portfolioImages.marktPulse.src}
+              srcSet={marktPulseImageSrcSet}
+              sizes="(max-width: 640px) 100vw, 92vw"
+              alt={portfolioImages.marktPulse.alt}
+              loading="lazy"
+            />
+            <ProjectOverlayWide>
+              <ProjectEyebrow style={{ color: 'var(--warm)', background: 'rgba(231,167,94,0.2)' }}>
+                {marktPulseProject.context}
+              </ProjectEyebrow>
+              <ProjectOverlayTitle>{marktPulseProject.title}</ProjectOverlayTitle>
+              <ProjectOverlayDesc>{marktPulseProject.tagline}</ProjectOverlayDesc>
+              <ProjectArrow>
+                View case study <ArrowUpRight size={14} />
+              </ProjectArrow>
+            </ProjectOverlayWide>
+          </FullWidthProjectTile>
+        </FullWidthProjectReveal>
       </FeaturedProjectsGrid>
 
       <Reveal>

@@ -34,6 +34,11 @@ export const portfolioImages = {
     photographer: "pexels",
    
   },
+  marktPulse: {
+    src: "https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    alt: "Laptop displaying commercial analytics graphs and business performance charts.",
+    photographer: "pexels",
+  },
   
 };
 
@@ -228,6 +233,118 @@ export const aquaPulseProject = {
         "Made it easier for stakeholders to filter performance by brand, country, date, and channel without manual spreadsheet work.",
     },
   ],
+};
+
+export const marktPulseProject = {
+  title: "Markt Pulse: AI-Powered Commercial Intelligence Platform",
+  subtitle: "Next.js · FastAPI · Snowflake · PostgreSQL · Groq/Llama",
+  context: "Commercial Intelligence Platform",
+  tagline:
+    "Full-stack AI-powered analytics platform for pipeline health, marketing performance, attribution, and executive KPIs.",
+  overview:
+    "Built a full-stack commercial intelligence platform that helps leadership monitor sales pipeline, marketing performance, attribution, and business KPIs in one interactive dashboard experience.",
+  problem:
+    "Commercial teams often work across CRM systems, marketing platforms, spreadsheets, and disconnected reporting tools, making it difficult to get a reliable real-time view of revenue performance, pipeline health, marketing efficiency, and attribution.",
+  role:
+    "Owned the full-stack implementation across dashboard UI, backend APIs, business-focused data endpoints, AI-powered insight generation, and analytics workflows for pipeline, marketing, attribution, and executive reporting.",
+  goals: [
+    "Visualize key commercial KPIs in real time.",
+    "Track sales pipeline health, deal movement, stalled opportunities, and forecast performance.",
+    "Analyze marketing spend, MQLs, SQLs, CAC, ROMI, and channel performance.",
+    "Provide attribution insights across marketing and revenue touchpoints.",
+    "Use AI to generate executive summaries and answer business questions from live data.",
+  ],
+  features: [
+    {
+      title: "Executive KPI dashboard",
+      body: "Revenue, pipeline, win rate, marketing spend, CAC, ROMI, and pipeline velocity metrics brought into one leadership-ready view.",
+    },
+    {
+      title: "Sales pipeline intelligence",
+      body: "Tracked deal stages, stalled deals, weighted pipeline, and forecast performance so teams could spot risks earlier.",
+    },
+    {
+      title: "Marketing performance analytics",
+      body: "Built channel-level efficiency and spend analysis across marketing activity, acquisition quality, and conversion outcomes.",
+    },
+    {
+      title: "Attribution reporting",
+      body: "Connected marketing touchpoints to pipeline and revenue signals to make contribution easier to understand.",
+    },
+    {
+      title: "AI insight assistant",
+      body: "Integrated Groq and Llama 3.3 70B so users could ask questions about commercial data and generate executive summaries.",
+    },
+    {
+      title: "Backend API layer",
+      body: "Designed FastAPI endpoints powering live metrics, pipeline data, marketing analytics, attribution, and AI agent responses.",
+    },
+    {
+      title: "Spreadsheet support",
+      body: "Added XLSX processing for importing and analyzing cohort or order data alongside application data.",
+    },
+  ],
+  platformLayers: [
+    {
+      title: "Frontend experience",
+      body: "Next.js, React, TypeScript, Tailwind CSS, Radix UI, and Lucide Icons for a modern dashboard interface.",
+    },
+    {
+      title: "Backend services",
+      body: "FastAPI, Python, SQLAlchemy, PostgreSQL, Alembic, Pydantic, and Uvicorn for typed API delivery.",
+    },
+    {
+      title: "Data and AI layer",
+      body: "Snowflake, dbt, Groq API, and Llama 3.3 70B across marketing, pipeline, KPI, and attribution data models.",
+    },
+  ],
+  techStack: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Radix UI",
+    "Lucide Icons",
+    "XLSX",
+    "FastAPI",
+    "Python",
+    "SQLAlchemy",
+    "PostgreSQL",
+    "Alembic",
+    "Pydantic",
+    "Snowflake",
+    "dbt",
+    "Groq API",
+    "Llama 3.3 70B",
+  ],
+  impact: [
+    {
+      value: "Faster",
+      label: "Executive reporting",
+      detail:
+        "Reduced the need to manually pull commercial data from multiple tools before leadership reviews.",
+    },
+    {
+      value: "Clearer",
+      label: "Pipeline visibility",
+      detail:
+        "Made deal movement, stalled opportunities, weighted pipeline, and forecast signals easier to inspect.",
+    },
+    {
+      value: "Smarter",
+      label: "Budget decisions",
+      detail:
+        "Connected marketing spend, CAC, ROMI, channel performance, and attribution into one decision layer.",
+    },
+    {
+      value: "Aligned",
+      label: "Sales and marketing",
+      detail:
+        "Created a shared view of performance so sales, marketing, and leadership could reason from the same numbers.",
+    },
+  ],
+  outcome:
+    "The result was a working full-stack commercial intelligence platform with a modern dashboard interface, FastAPI backend, live data-driven endpoints, and AI-powered business insight generation.",
 };
 
 export const impactStats = [

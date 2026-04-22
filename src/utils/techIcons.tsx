@@ -3,22 +3,27 @@ import {
   SiAnthropic,
   SiExpress,
   SiFacebook,
+  SiFastapi,
   SiGoogleads,
   SiJsonwebtokens,
+  SiNextdotjs,
   SiNodedotjs,
+  SiOllama,
   SiPandas,
   SiPlotly,
   SiPostgresql,
   SiPrisma,
   SiPython,
+  SiRadixui,
   SiReact,
   SiSnowflake,
+  SiSqlalchemy,
   SiStreamlit,
   SiTailwindcss,
   SiTypescript,
   SiVite,
 } from '@icons-pack/react-simple-icons'
-import { BarChart2, Boxes, Database, FileSpreadsheet, Linkedin } from 'lucide-react'
+import { BarChart2, Bot, Boxes, Database, FileSpreadsheet, Linkedin } from 'lucide-react'
 
 // dbt Labs brand icon (not in simple-icons v16 — inlined from brand assets)
 function DbtIcon({ size = 24 }: { size?: number }) {
@@ -82,4 +87,18 @@ export const techIconMap: Record<string, IconComponent> = {
   'Google Ads': SiGoogleads as IconComponent,
   'Facebook Ads': SiFacebook as IconComponent,
   'LinkedIn Ads': Linkedin as IconComponent,
+
+  // ── Markt Pulse ──────────────────────────────────────────────
+  'Next.js': SiNextdotjs as IconComponent,
+  React: SiReact as IconComponent,
+  'Tailwind CSS': SiTailwindcss as IconComponent,
+  'Radix UI': SiRadixui as IconComponent,
+  'Lucide Icons': Boxes as IconComponent,
+  XLSX: FileSpreadsheet as IconComponent,
+  FastAPI: SiFastapi as IconComponent,
+  SQLAlchemy: SiSqlalchemy as IconComponent,
+  Alembic: Database as IconComponent,
+  Pydantic: Boxes as IconComponent,
+  'Groq API': Bot as IconComponent,
+  'Llama 3.3 70B': SiOllama as IconComponent,
 }

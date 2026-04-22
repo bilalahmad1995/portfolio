@@ -1,7 +1,13 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { blogPosts } from '../content/blogContent'
-import { aquaPulseProject, salesFunnelProject, samsungCQCProject, siteMeta } from '../content/siteContent'
+import {
+  aquaPulseProject,
+  marktPulseProject,
+  salesFunnelProject,
+  samsungCQCProject,
+  siteMeta,
+} from '../content/siteContent'
 
 const defaultTitle = 'Bilal Ahmad | Data Engineering, Analytics & AI'
 const defaultDescription =
@@ -59,6 +65,11 @@ function getMeta(pathname: string) {
     '/portfolio/samsung-cqc': {
       title: `${samsungCQCProject.title} | ${siteMeta.name}`,
       description: samsungCQCProject.tagline,
+      type: 'article',
+    },
+    '/portfolio/markt-pulse': {
+      title: `${marktPulseProject.title} | ${siteMeta.name}`,
+      description: marktPulseProject.tagline,
       type: 'article',
     },
     '/blog': {
