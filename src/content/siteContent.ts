@@ -35,9 +35,9 @@ export const portfolioImages = {
    
   },
   marktPulse: {
-    src: "https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "Laptop displaying commercial analytics graphs and business performance charts.",
-    photographer: "pexels",
+    src: "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?auto=format&fit=crop&w=1600&q=80",
+    alt: "Black and silver laptop displaying a commercial performance analytics dashboard.",
+    photographer: "path digital / Unsplash",
   },
   
 };

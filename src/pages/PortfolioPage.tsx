@@ -33,9 +33,9 @@ const infrastructureImageSrcSet = [
 ].join(', ')
 
 const marktPulseImageSrcSet = [
-  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
-  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
-  'https://images.pexels.com/photos/7109316/pexels-photo-7109316.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
+  'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?auto=format&fit=crop&w=640&q=80 640w',
+  'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?auto=format&fit=crop&w=900&q=80 900w',
+  'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?auto=format&fit=crop&w=1200&q=80 1200w',
 ].join(', ')
 
 const Page = styled(motion.div)`
