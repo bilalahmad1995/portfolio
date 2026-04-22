@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { blogPosts } from '../content/blogContent'
 import {
   aquaPulseProject,
   marktPulseProject,
@@ -72,34 +71,11 @@ function getMeta(pathname: string) {
       description: marktPulseProject.tagline,
       type: 'article',
     },
-    '/blog': {
-      title: `Blog | ${siteMeta.name}`,
-      description:
-        'Essays and writing on AI agents, data engineering, modern analytics, machine learning, and thoughtful software systems.',
-    },
-    '/beyond': {
-      title: `Beyond Work | ${siteMeta.name}`,
-      description:
-        'A more personal side of Bilal Ahmad: places lived, books read, and interests beyond software and data work.',
-    },
     '/contact': {
       title: `Contact | ${siteMeta.name}`,
       description:
         'Get in touch with Bilal Ahmad for roles, freelance collaborations, and conversations around data engineering, analytics, and applied AI.',
     },
-  }
-
-  if (pathname.startsWith('/blog/')) {
-    const slug = pathname.replace('/blog/', '')
-    const post = blogPosts.find((item) => item.slug === slug)
-
-    if (post) {
-      return {
-        title: `${post.title} | ${siteMeta.name}`,
-        description: post.excerpt,
-        type: 'article' as const,
-      }
-    }
   }
 
   return staticRoutes[pathname] ?? {
