@@ -390,82 +390,6 @@ const TechItem = styled.span`
   }
 `
 
-const DnaMantra = styled.div`
-  position: relative;
-  z-index: 1;
-  padding: 1rem 1.15rem;
-  border-radius: var(--radius-md);
-  background: rgba(14, 143, 131, 0.1);
-  border-left: 3px solid rgba(14, 143, 131, 0.6);
-
-  p {
-    font-size: 0.93rem;
-    color: rgba(255, 255, 255, 0.82);
-    font-style: italic;
-    line-height: 1.65;
-  }
-`
-
-const DnaSupport = styled.div`
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 0.85rem;
-  padding-top: 0.2rem;
-`
-
-const DnaSupportHeader = styled.div`
-  display: grid;
-  gap: 0.2rem;
-
-  span {
-    display: block;
-    font-size: 0.84rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.56);
-  }
-
-  p {
-    font-size: 0.86rem;
-    color: rgba(255, 255, 255, 0.58);
-    line-height: 1.55;
-  }
-`
-
-const DnaSupportGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.6rem;
-
-  @media (max-width: 760px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (max-width: 420px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const DnaSupportPill = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-width: 0;
-  padding: 0.7rem 0.8rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.84rem;
-  font-weight: 600;
-
-  span {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-`
-
 const LiveBadge = styled.div`
   position: absolute;
   top: 1.8rem;
@@ -787,7 +711,6 @@ const SecondaryCta = styled(Link)`
 export function HomePage() {
   const icons = [Database, BarChart3, Brain]
   const approachIcons = [Sparkles, Workflow, Briefcase]
-  const collaborationTools = ['Office 365', 'MS Teams', 'Confluence', 'JIRA']
   const approach = [
     {
       title: 'Frame the real problem',
@@ -870,25 +793,6 @@ export function HomePage() {
               </Pillar>
             </PillarGrid>
 
-            <DnaMantra>
-              <p>"I connect raw data to decisions people trust — through clean engineering, sharp analytics, and purposeful AI."</p>
-            </DnaMantra>
-
-            <DnaSupport>
-              <DnaSupportHeader>
-                <span>Project Management & Collaboration</span>
-                <p>Office workflows, planning, handoff, and team communication tools I use comfortably in delivery environments.</p>
-              </DnaSupportHeader>
-
-              <DnaSupportGrid>
-                {collaborationTools.map((tool) => (
-                  <DnaSupportPill key={tool}>
-                    <Workflow size={15} />
-                    <span>{tool}</span>
-                  </DnaSupportPill>
-                ))}
-              </DnaSupportGrid>
-            </DnaSupport>
           </TechDnaCard>
         </Reveal>
 
