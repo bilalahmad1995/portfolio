@@ -7,9 +7,9 @@ import { SectionTitle } from '../components/SectionTitle'
 import { experienceTimeline, focusAreas, impactStats, portfolioImages, siteMeta, skillGroups } from '../content/siteContent'
 
 const analyticsImageSrcSet = [
+  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=480 480w',
   'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=640 640w',
   'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=900 900w',
-  'https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w',
 ].join(', ')
 
 const Page = styled(motion.div)`
@@ -885,7 +885,7 @@ export function HomePage() {
               <img
                 src={portfolioImages.analytics.src}
                 srcSet={analyticsImageSrcSet}
-                sizes="(max-width: 860px) 100vw, 58vw"
+                sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 860px) calc(100vw - 48px), 673px"
                 alt={portfolioImages.analytics.alt}
                 loading="lazy"
               />

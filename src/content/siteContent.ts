@@ -17,7 +17,7 @@ export const portfolioImages = {
    
   },
   analytics: {
-    src: "https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://images.pexels.com/photos/7947997/pexels-photo-7947997.jpeg?auto=compress&cs=tinysrgb&w=900",
     alt: "Laptop screen showing an analytics chart in a natural workspace.",
     photographer: "pexels",
   
