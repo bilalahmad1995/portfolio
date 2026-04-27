@@ -11,6 +11,8 @@ const AquaPulsePage = lazy(async () => ({ default: (await import('./pages/AquaPu
 const SalesFunnelPage = lazy(async () => ({ default: (await import('./pages/SalesFunnelPage')).SalesFunnelPage }))
 const SamsungCQCPage = lazy(async () => ({ default: (await import('./pages/SamsungCQCPage')).SamsungCQCPage }))
 const MarktPulsePage = lazy(async () => ({ default: (await import('./pages/MarktPulsePage')).MarktPulsePage }))
+const BlogPage = lazy(async () => ({ default: (await import('./pages/BlogPage')).BlogPage }))
+const BlogPostPage = lazy(async () => ({ default: (await import('./pages/BlogPostPage')).BlogPostPage }))
 const ContactPage = lazy(async () => ({ default: (await import('./pages/ContactPage')).ContactPage }))
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
             <Route path="/portfolio/sales-funnel" element={<SalesFunnelPage />} />
             <Route path="/portfolio/samsung-cqc" element={<SamsungCQCPage />} />
             <Route path="/portfolio/markt-pulse" element={<MarktPulsePage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Route>
         </Routes>

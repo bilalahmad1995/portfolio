@@ -399,6 +399,7 @@ const FooterMeta = styled.div`
 const navLinks = [
   { to: '/',          label: 'Home' },
   { to: '/portfolio', label: 'Portfolio' },
+  { to: '/blog',      label: 'Blog' },
   { to: '/contact',   label: 'Contact' },
 ]
 
