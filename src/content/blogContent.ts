@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     title: "AI Agents Are Not a Feature — They're a New Software Paradigm",
     date: 'April 8, 2026',
     readTime: '7 min read',
-    featured: true,
+    featured: false,
     excerpt:
       "We've spent the last 18 months treating AI agents like a clever plugin — tool calls, system prompts, RAG pipelines bolted onto existing apps. But the shift happening right now is more fundamental: the loop itself is changing. Code no longer runs sequentially; it plans, reflects, and iterates. That changes what building software means from the ground up. Every assumption about state, control flow, and error handling is up for rethinking.",
     tags: ['AI Agents', 'LLMs', 'Architecture'],
@@ -353,7 +353,7 @@ export const blogPosts: BlogPost[] = [
     title: 'The End of Tedious ML: How Tabular Foundation Models Are Changing the Game',
     date: 'April 17, 2026',
     readTime: '8 min read',
-    featured: false,
+    featured: true,
     excerpt:
       "Traditional ML on structured data is painful — model selection, hyperparameter tuning, retraining, preprocessing. It can eat weeks before you get a single reliable result. Prior Labs and their TabPFN model family are challenging every assumption behind that workflow. Instant predictions, no preprocessing, no retraining. This is not an incremental improvement. It is a paradigm shift — and it is worth paying attention to.",
     tags: ['Machine Learning', 'TabPFN', 'Foundation Models', 'AutoML'],
