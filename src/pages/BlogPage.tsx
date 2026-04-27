@@ -438,7 +438,9 @@ export function BlogPage() {
   }
 
   const featured = blogPosts.find((p) => p.featured)!
-  const rest = blogPosts.filter((p) => !p.featured)
+  const rest = blogPosts
+    .filter((p) => !p.featured)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
     <Page

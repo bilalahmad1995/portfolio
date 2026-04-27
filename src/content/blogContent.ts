@@ -344,6 +344,116 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+
+  // ─── Post 5 ──────────────────────────────────────────────────────────────
+  {
+    id: 5,
+    slug: 'end-of-tedious-ml-tabpfn',
+    category: 'Machine Learning',
+    title: 'The End of Tedious ML: How Tabular Foundation Models Are Changing the Game',
+    date: 'April 17, 2026',
+    readTime: '8 min read',
+    featured: false,
+    excerpt:
+      "Traditional ML on structured data is painful — model selection, hyperparameter tuning, retraining, preprocessing. It can eat weeks before you get a single reliable result. Prior Labs and their TabPFN model family are challenging every assumption behind that workflow. Instant predictions, no preprocessing, no retraining. This is not an incremental improvement. It is a paradigm shift — and it is worth paying attention to.",
+    tags: ['Machine Learning', 'TabPFN', 'Foundation Models', 'AutoML'],
+    body: [
+      {
+        type: 'lead',
+        text: "If you have ever trained a machine learning model on a structured dataset, you know the ritual. Clean the data. Encode the categoricals. Impute the missing values. Try XGBoost. Tune the hyperparameters. Try LightGBM. Tune those too. Evaluate. Retrain on the full dataset. Wait. Repeat. By the time you have something reliable, you have spent more time on plumbing than on thinking. Prior Labs thinks there is a better way — and the evidence is hard to dismiss.",
+      },
+      {
+        type: 'h2',
+        text: 'The problem with traditional tabular ML',
+      },
+      {
+        type: 'p',
+        text: "Tabular data — spreadsheets, database exports, sensor logs, transaction records — is the most common form of structured data in business. And yet, building ML models on it remains stubbornly slow. Every new dataset requires its own preprocessing pipeline. Every new problem requires a fresh model selection exercise. Every production deployment eventually drifts and demands retraining.",
+      },
+      {
+        type: 'p',
+        text: "The tooling has improved — AutoML frameworks like AutoSklearn and H2O reduce some of the drudgery — but they have not changed the underlying model. You are still fitting a model to your specific dataset from scratch each time. The compute accumulates. The iteration cycles are long. And for small datasets, the results are often disappointing regardless of how much you tune.",
+      },
+      {
+        type: 'h2',
+        text: 'The LLM analogy — and why it matters for tabular data',
+      },
+      {
+        type: 'p',
+        text: "Before large language models, doing useful things with text required the same grind: collect labelled data, train a classifier, tune it for your specific domain, repeat for every new task. Then transformers arrived, pre-trained on vast corpora, and everything changed. You no longer trained a text model from scratch — you fine-tuned or prompted one that already understood language. The paradigm shifted from task-specific training to general-purpose inference.",
+      },
+      {
+        type: 'p',
+        text: "Tabular foundation models are attempting exactly the same shift — but for structured data. Instead of training a new model on your dataset, you pass your data to a model that has already learned the generalised patterns of how features relate to labels across thousands of datasets. The model does not need to see your data during training. It reasons about it at inference time.",
+      },
+      {
+        type: 'quote',
+        text: "LLMs did not make text AI faster — they changed what training means. TabPFN is doing the same thing for structured data.",
+      },
+      {
+        type: 'h2',
+        text: 'What TabPFN actually does',
+      },
+      {
+        type: 'p',
+        text: "TabPFN — Tabular Prior-Data Fitted Network — was developed by Prior Labs (a spinout from the University of Freiburg) and has been evolving rapidly since its initial publication. The core idea is elegant: rather than training on your dataset, TabPFN is meta-trained across a vast synthetic prior of datasets. It learns to do Bayesian inference in-context — treating your training rows as a context window and predicting labels for new rows within a single forward pass.",
+      },
+      {
+        type: 'p',
+        text: "The practical implications of this are significant. TabPFN v2 — the current flagship — handles classification and regression on datasets up to around 10,000 rows and 500 features with no preprocessing required. Categorical columns, missing values, mixed types: the model handles them natively. There is no fitting step in the traditional sense. You pass in data, you get predictions.",
+      },
+      {
+        type: 'bullets',
+        items: [
+          'Instant predictions — no training loop, results in seconds not hours',
+          'No preprocessing required — handles missing values and categoricals natively',
+          'Exceptional on small data — outperforms XGBoost/LightGBM on datasets under 10k rows in many benchmarks',
+          'No hyperparameter tuning — the prior absorbs that complexity',
+          'Uncertainty estimates out of the box — probabilistic outputs, not just point predictions',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Real-world use cases worth paying attention to',
+      },
+      {
+        type: 'p',
+        text: "Healthcare is the domain where TabPFN's small-data strength is most immediately valuable. Clinical trials, rare disease cohorts, patient subgroup analyses — these datasets are frequently too small for deep learning to be reliable and too complex for simple linear models to be accurate. A model that performs competitively on 200-row datasets with mixed feature types and missing lab values is genuinely useful here. Prior Labs have published results showing TabPFN v2 matching or beating gradient boosting ensembles on several clinical benchmark datasets.",
+      },
+      {
+        type: 'p',
+        text: "In financial services, the appeal is different. Credit risk models and fraud detection pipelines require frequent retraining as population distributions shift. The traditional workflow — retrain, validate, redeploy — introduces latency that can matter. A foundation model that can be updated by simply changing the context window (new rows in, stale rows out) without a retraining cycle changes the economics of keeping models current. TabPFN is not yet suited to the largest enterprise-scale datasets, but for mid-market lenders and fintech products with sub-10k training sets, the fit is real.",
+      },
+      {
+        type: 'p',
+        text: "Industrial and manufacturing settings offer a third angle. Predictive maintenance models are often built on sensor data from a single production line — small, high-dimensional, with structured missingness due to sensor failures. The conventional approach requires careful feature engineering and repeated retraining as equipment ages. TabPFN's tolerance for messy, mixed-type data with no preprocessing pipeline means a data scientist can iterate on problem framing rather than data wrangling. The cycle from question to answer compresses dramatically.",
+      },
+      {
+        type: 'h2',
+        text: 'What to watch — and what to be realistic about',
+      },
+      {
+        type: 'p',
+        text: "TabPFN is not a universal replacement for gradient boosting. On large datasets — hundreds of thousands of rows — it is currently outpaced by XGBoost and LightGBM, and the memory requirements at inference become substantial. The context-window framing that makes it so powerful on small data becomes a constraint at scale. Prior Labs acknowledge this and the TabPFN v2 paper is explicit about the intended operating range.",
+      },
+      {
+        type: 'p',
+        text: "There is also an interpretability question. TabPFN produces SHAP-compatible feature importances and uncertainty estimates, but the in-context inference mechanism is less transparent than a trained tree ensemble where you can inspect splits directly. For regulated industries where model explainability is a compliance requirement, this needs careful consideration.",
+      },
+      {
+        type: 'h2',
+        text: 'Where this is going',
+      },
+      {
+        type: 'p',
+        text: "The trajectory here mirrors what we saw with language models between 2020 and 2023. Early versions were impressive but limited. Subsequent versions expanded the context, improved calibration, and closed the gap with task-specific approaches on benchmark after benchmark. Prior Labs are on a similar path — TabPFN v2 is already meaningfully better than v1, and the architectural decisions they have made (meta-learning over a synthetic prior, in-context Bayesian inference) give them a clear direction for scaling.",
+      },
+      {
+        type: 'p',
+        text: "The deeper shift is philosophical. If tabular foundation models mature to the point where they match or exceed gradient boosting across the full range of dataset sizes — not just the small-data regime — the standard ML workflow for structured data will look very different. Model selection as a discipline largely disappears. Preprocessing pipelines shrink dramatically. The ML engineer's time shifts from plumbing to problem framing, evaluation design, and deployment infrastructure. That is a better use of the role, and it is closer than most people in the field currently expect.",
+      },
+    ],
+  },
 ]
 
 // Category colour config — shared across both pages
