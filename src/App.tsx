@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { GoogleAnalytics } from './components/GoogleAnalytics'
 import { Seo } from './components/Seo'
 import { SiteLayout } from './components/SiteLayout'
 import { ScrollToTop } from './components/ScrollToTop'
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <GoogleAnalytics />
       <Seo />
       <ScrollToTop />
       <Suspense fallback={null}>
